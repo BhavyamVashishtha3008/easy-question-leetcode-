@@ -1,0 +1,23 @@
+class Solution {
+public:
+    int minOperations(vector<string>& logs) 
+    {
+        stack<string> stack;
+        for(string log: logs)   
+        {
+            if(log=="../")
+            {
+                if(stack.size()>0)
+                {
+                    stack.pop();
+                }
+            }
+            else if(log=="./");
+            else
+            {
+                stack.push(log);
+            }
+        }
+        return stack.size();
+    }
+};
