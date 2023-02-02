@@ -1,0 +1,21 @@
+class Solution {
+public:
+    vector<vector<int>> matrixReshape(vector<vector<int>>& mat, int r, int c) 
+    {
+        int row=mat.size(),col=mat[0].size();
+        if(row*col!=r*c)
+            return mat;
+        int i=0;
+        vector<vector<int>> ret(r,vector<int>(c,0));
+        for(int j=0;j<r*c;j++)
+        {
+            int matr=i/col;
+            int matc=i%col;
+            int retr=i/c;
+            int retc=i%c;
+            ret[retr][retc]=mat[matr][matc];
+            i++;
+        }
+        return ret;
+    }
+};
