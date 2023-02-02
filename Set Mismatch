@@ -1,0 +1,22 @@
+class Solution {
+public:
+    vector<int> findErrorNums(vector<int>& nums) {
+        int n = nums.size();
+        long long sum = 0, sqSum = 0, arrSum = 0, arrSqSum = 0;
+        for(int i = 0; i < n; i++){
+            sum += (i+1);
+            arrSum += nums[i];
+            sqSum += (i+1)*(i+1);
+            arrSqSum += nums[i]*nums[i];
+        }
+        int s1 = sum - arrSum;
+        int s2 = sqSum - arrSqSum;
+        int s3 = s2/s1;
+        int X = (s1 + s3)/2;
+        int Y = (s3 - s1)/2;
+        vector<int> ans;
+        ans.push_back(Y);
+        ans.push_back(X);
+        return ans;
+    }
+};
